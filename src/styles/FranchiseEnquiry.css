@@ -1,0 +1,159 @@
+.franchise-hero {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../assets/anna-nagar-west.jpg');
+    /* Using an existing asset as placeholder BG */
+    background-size: cover;
+    background-position: center;
+    margin-top: -80px;
+    /* Counteract Navbar height if it's not sticky/fixed properly in layout */
+    padding-top: 80px;
+}
+
+.franchise-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9));
+    z-index: 1;
+}
+
+.franchise-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.franchise-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.franchise-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.franchise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.section-desc-left {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.franchise-benefits {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.franchise-benefits li {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.franchise-benefits li:hover {
+    transform: translateX(10px);
+    border-color: var(--primary-color);
+}
+
+.franchise-benefits h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.franchise-benefits p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.franchise-form-container {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.franchise-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.franchise-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.franchise-form input,
+.franchise-form select,
+.franchise-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.franchise-form input:focus,
+.franchise-form select:focus,
+.franchise-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.success-message {
+    padding: 2rem;
+}
+
+@media (max-width: 968px) {
+    .franchise-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .franchise-title {
+        font-size: 2.5rem;
+    }
+}
