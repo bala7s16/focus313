@@ -49,7 +49,7 @@ const Programs = () => {
             id: 8,
             title: 'Yoga & Mobility',
             desc: 'Improve flexibility, balance, and mental clarity with our expert-led yoga sessions.',
-            image: 'https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=2069&auto=format&fit=crop'
         },
         {
             id: 9,
