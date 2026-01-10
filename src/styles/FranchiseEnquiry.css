@@ -13,6 +13,14 @@
     padding-top: 80px;
 }
 
+@media (max-width: 768px) {
+    .franchise-hero {
+        justify-content: flex-start;
+        padding-top: 150px;
+        /* Extra padding for mobile */
+    }
+}
+
 .franchise-hero-overlay {
     position: absolute;
     top: 0;

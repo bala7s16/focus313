@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaStar, FaInstagram } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaStar, FaInstagram, FaFacebook, FaClock } from 'react-icons/fa';
 import { locations } from '../data/locations';
 import '../styles/LocationDetails.css';
 
@@ -59,6 +59,20 @@ const LocationDetails = () => {
                                 </div>
                             </div>
                             <div className="info-item">
+                                <FaClock className="info-icon" />
+                                <div>
+                                    <h4>Timings</h4>
+                                    {location.timings ? (
+                                        <>
+                                            <p style={{ marginBottom: '0.2rem' }}>{location.timings.weekdays}</p>
+                                            <p>{location.timings.sunday}</p>
+                                        </>
+                                    ) : (
+                                        <p>Contact for timings</p>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="info-item">
                                 <FaPhone className="info-icon" />
                                 <div>
                                     <h4>Phone</h4>
@@ -100,9 +114,16 @@ const LocationDetails = () => {
                 <div className="container">
                     <div className="section-title-wrapper text-center">
                         <h2 className="section-title">Our <span className="text-highlight">Gallery</span></h2>
-                        <a href={location.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-instagram mt-4">
-                            <FaInstagram /> View on Instagram
-                        </a>
+                        <div className="social-links mt-4" style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+                            <a href={location.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-instagram">
+                                <FaInstagram /> View on Instagram
+                            </a>
+                            {location.facebook && (
+                                <a href={location.facebook} target="_blank" rel="noopener noreferrer" className="btn btn-facebook" style={{ backgroundColor: '#1877F2', borderColor: '#1877F2' }}>
+                                    <FaFacebook /> View on Facebook
+                                </a>
+                            )}
+                        </div>
                     </div>
 
                     <div className="gallery-grid">
