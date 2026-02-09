@@ -1,17 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { locations } from '../data/locations';
-import SearchInput from '../components/SearchInput';
 import '../styles/Home.css';
 
 const Home = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const filteredLocations = locations.filter(location =>
-        location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        location.tagline.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
     return (
         <div className="home-page">
             {/* Hero Section */}
@@ -58,43 +48,6 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            {/* Locations Section */}
-            <section className="locations-section section-padding">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <h2 className="section-title">Our <span className="text-highlight">Locations</span></h2>
-                        <p className="section-desc">Training available across Chennai.</p>
-                    </div>
-
-                    <SearchInput
-                        value={searchTerm}
-                        onChange={setSearchTerm}
-                        placeholder="Search locations..."
-                    />
-
-                    {filteredLocations.length > 0 ? (
-                        <div className="locations-grid">
-                            {filteredLocations.map((location) => (
-                                <div className="location-card" key={location.id}>
-                                    <div className="location-img" style={{ backgroundImage: `url(${location.image})` }}></div>
-                                    <div className="location-info">
-                                        <h3>{location.name}</h3>
-                                        <p>{location.tagline}</p>
-                                        <Link to={`/location/${location.id}`} className="btn-link">View Details</Link>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="text-center">
-                            <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', marginTop: '2rem' }}>
-                                No locations found matching "{searchTerm}"
-                            </p>
-                        </div>
-                    )}
                 </div>
             </section>
 

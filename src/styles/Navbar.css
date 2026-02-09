@@ -84,6 +84,69 @@
     display: none;
 }
 
+/* Dropdown Styles */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #1e293b;
+    /* Slightly lighter than bg-dark for contrast */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.dropdown-item:hover {
+    color: white;
+    background: var(--primary);
+}
+
+/* Desktop Hover */
+@media (min-width: 769px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-item.dropdown:hover .dropdown-icon {
+        transform: rotate(180deg);
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .menu-icon {
@@ -122,5 +185,33 @@
 
     .nav-link {
         font-size: 1rem;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        display: none;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .nav-item.dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .nav-item.dropdown.open .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        color: var(--text-light);
     }
 }

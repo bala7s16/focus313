@@ -1,15 +1,30 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { locations } from '../data/locations';
 import logo from '../assets/logo.png';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const location = useLocation();
 
-    const toggleMenu = () => setIsOpen(!isOpen);
-    const closeMenu = () => setIsOpen(false);
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+        setDropdownOpen(false);
+    };
+    const closeMenu = () => {
+        setIsOpen(false);
+        setDropdownOpen(false);
+    };
+
+    const toggleDropdown = (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            setDropdownOpen(!dropdownOpen);
+        }
+    };
 
     const navLinks = [
         { title: 'Home', path: '/' },
@@ -39,6 +54,30 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ))}
+
+                    {/* Branches Dropdown */}
+                    <li className={`nav-item dropdown ${dropdownOpen ? 'open' : ''}`}>
+                        <span
+                            className="nav-link dropdown-toggle"
+                            onClick={toggleDropdown}
+                        >
+                            Branches <FaChevronDown className="dropdown-icon" />
+                        </span>
+                        <ul className="dropdown-menu">
+                            {locations.map((branch) => (
+                                <li key={branch.id}>
+                                    <Link
+                                        to={`/location/${branch.id}`}
+                                        className="dropdown-item"
+                                        onClick={closeMenu}
+                                    >
+                                        {branch.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+
                     <li className="nav-item mobile-only">
                         <Link to="/contact" className="btn btn-primary nav-btn" onClick={closeMenu}>
                             Join Now
