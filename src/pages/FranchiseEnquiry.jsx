@@ -13,6 +13,8 @@ const FranchiseEnquiry = () => {
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [isSending, setIsSending] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,12 +24,40 @@ const FranchiseEnquiry = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Here you would typically send the data to a backend
-        console.log('Franchise Enquiry Submitted:', formData);
-        setSubmitted(true);
-        // Reset form after 3 seconds or keep success message
+        setIsSending(true);
+        setError(null);
+
+        const payload = {
+            name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            message: `Location: ${formData.location}\nInvestment: ${formData.investment}\nExperience: ${formData.experience}\nMessage: ${formData.message}`,
+            branch: 'Franchise Dept',
+            branchEmail: 'enquiry@focus313fitness.com',
+            type: 'Franchise Enquiry'
+        };
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                setSubmitted(true);
+            } else {
+                const data = await response.json();
+                throw new Error(data.error || 'Failed to submit enquiry');
+            }
+        } catch (err) {
+            setError(err.message || 'Submission failed');
+            console.error('Franchise Submission Error:', err);
+        } finally {
+            setIsSending(false);
+        }
     };
 
     return (
@@ -177,7 +207,10 @@ const FranchiseEnquiry = () => {
                                         ></textarea>
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary w-full">Submit Enquiry</button>
+                                    {error && <div className="error-message text-center" style={{ color: '#e74c3c', marginBottom: '1rem' }}>{error}</div>}
+                                    <button type="submit" className="btn btn-primary w-full" disabled={isSending}>
+                                        {isSending ? 'Submitting...' : 'Submit Enquiry'}
+                                    </button>
                                 </form>
                             )}
                         </div>

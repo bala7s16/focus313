@@ -43,7 +43,7 @@ export const locations = [
         description: 'Our premium facility located in the heart of Anna Nagar. Experience elite training with top-tier equipment and expert coaches.',
         address: 'F factor, W, 677, E Main Rd, D-Sector, Anna Nagar West Extension, Chennai, Tamil Nadu 600101',
         phone: '+91 99627 37222',
-        email: 'focus313fitness@gmail.com',
+        email: 'annanagar@focus313fitness.com',
         timings: {
             weekdays: 'Mon - Sat: 5:30 AM - 9:30 PM',
             sunday: 'Sunday: 7:00 AM - 1:00 PM'
@@ -74,7 +74,7 @@ export const locations = [
         description: 'The core strength studio designed for serious fitness enthusiasts. Focus on building raw strength and endurance.',
         address: 'Second Floor, 28/8, Nelson Manickam Rd, Railway Colony, Aminjikarai, Chennai, Tamil Nadu 600029',
         phone: '+91 73059 58313',
-        email: 'focus313fitness@gmail.com',
+        email: 'aminjikarai@focus313fitness.com',
         timings: {
             weekdays: 'Mon - Sat: 5:30 AM - 9:30 PM',
             sunday: 'Sunday: 7:00 AM - 1:00 PM'
@@ -104,7 +104,7 @@ export const locations = [
         description: 'Our performance center dedicated to athletic development and functional fitness. Unlock your true potential.',
         address: 'No. 277/3B, School St, Gayathri Nagar, Ayappakkam, Chennai, Tamil Nadu 600077',
         phone: '+91 99442 34313',
-        email: 'focus313fitness@gmail.com',
+        email: 'ayappakkam@focus313fitness.com',
         timings: {
             weekdays: 'Mon - Sat: 5:30 AM - 9:30 PM',
             sunday: 'Sunday: 7:00 AM - 1:00 PM'
