@@ -90,7 +90,7 @@ const LocationDetails = () => {
                                 <FaStar className="info-icon text-yellow" />
                                 <div>
                                     <h4>Google Rating</h4>
-                                    <p>{location.googleRating} / 5.0</p>
+                                    <p>{Number(location.googleRating).toFixed(1)} / 5.0</p>
                                 </div>
                             </div>
                         </div>

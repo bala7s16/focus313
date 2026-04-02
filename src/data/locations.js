@@ -1,6 +1,6 @@
 import annaNagarWestImg from '../assets/anna-nagar-west.jpg';
 import aminjikaraiImg from '../assets/aminjikarai.jpg';
-import ayappakkamImg from '../assets/ayappakkam.png';
+import ayappakkamImg from '../assets/ayappakkam.jpeg';
 // Anna Nagar West Gallery Imports
 import anw1 from '../assets/gallery/anna-nagar-west/1.jpg';
 import anw2 from '../assets/gallery/anna-nagar-west/2.jpg';
@@ -14,15 +14,6 @@ import anw8 from '../assets/gallery/anna-nagar-west/8.jpg';
 
 const annaNagarWestGallery = [anw1, anw2, anw3, anw4, anw5, anw6, anw7, anw8];
 
-// Other locations use generic gallery for now or their own if added later
-import gallery1 from '../assets/gallery/1.jpg';
-import gallery2 from '../assets/gallery/2.jpg';
-import gallery3 from '../assets/gallery/3.jpg';
-import gallery4 from '../assets/gallery/4.jpg';
-import gallery5 from '../assets/gallery/5.jpg';
-
-const genericGallery = [gallery1, gallery2, gallery3, gallery4, gallery5];
-
 // Aminjikarai Gallery Imports
 import ami1 from '../assets/gallery/aminjikarai/1.jpg';
 import ami2 from '../assets/gallery/aminjikarai/2.jpg';
@@ -35,6 +26,23 @@ import ami8 from '../assets/gallery/aminjikarai/8.jpg';
 
 const aminjikaraiGallery = [ami1, ami2, ami3, ami4, ami5, ami6, ami7, ami8];
 
+const loadGallery = (modules) =>
+    Object.entries(modules)
+        .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, { numeric: true, sensitivity: 'base' }))
+        .map(([, image]) => image);
+
+const ayappakkamGallery = loadGallery(
+    import.meta.glob('../assets/gallery/ayappakam/*.{jpg,jpeg,png,JPG,JPEG,PNG}', {
+        eager: true,
+        import: 'default'
+    })
+);
+
+export const operatingHours = {
+    weekdays: 'Mon - Sat: 5:30 AM - 9:30 PM',
+    sunday: 'Sunday: 7:00 AM - 1:00 PM'
+};
+
 export const locations = [
     {
         id: 'anna-nagar-west',
@@ -44,10 +52,7 @@ export const locations = [
         address: 'F factor, W, 677, E Main Rd, D-Sector, Anna Nagar West Extension, Chennai, Tamil Nadu 600101',
         phone: '+91 99627 37222',
         email: 'annanagar@focus313fitness.com',
-        timings: {
-            weekdays: 'Mon - Sat: 5:30 AM - 9:30 PM',
-            sunday: 'Sunday: 7:00 AM - 1:00 PM'
-        },
+        timings: { ...operatingHours },
         googleRating: 4.9,
         mapUrl: 'https://maps.google.com/maps?q=13.092141,80.197279&z=15&output=embed',
         mapUrl: 'https://maps.google.com/maps?q=13.092141,80.197279&z=15&output=embed',
@@ -75,11 +80,8 @@ export const locations = [
         address: 'Second Floor, 28/8, Nelson Manickam Rd, Railway Colony, Aminjikarai, Chennai, Tamil Nadu 600029',
         phone: '+91 73059 58313',
         email: 'aminjikarai@focus313fitness.com',
-        timings: {
-            weekdays: 'Mon - Sat: 5:30 AM - 9:30 PM',
-            sunday: 'Sunday: 7:00 AM - 1:00 PM'
-        },
-        googleRating: 4.8,
+        timings: { ...operatingHours },
+        googleRating: 5.0,
         mapUrl: 'https://maps.google.com/maps?q=13.068254,80.226243&z=15&output=embed',
         mapUrl: 'https://maps.google.com/maps?q=13.068254,80.226243&z=15&output=embed',
         instagram: 'https://www.instagram.com/focus313_aminjikarai/',
@@ -105,15 +107,13 @@ export const locations = [
         address: 'No. 277/3B, School St, Gayathri Nagar, Ayappakkam, Chennai, Tamil Nadu 600077',
         phone: '+91 99442 34313',
         email: 'ayappakkam@focus313fitness.com',
-        timings: {
-            weekdays: 'Mon - Sat: 5:30 AM - 9:30 PM',
-            sunday: 'Sunday: 7:00 AM - 1:00 PM'
-        },
-        googleRating: 4.9,
+        timings: { ...operatingHours },
+        googleRating: 5.0,
         mapUrl: 'https://maps.google.com/maps?q=13.098013,80.132236&z=15&output=embed',
         instagram: 'https://www.instagram.com/focus313_ayappakkam/',
+        facebook: 'https://www.facebook.com/people/Focus313-ayapakkam/61583546918268/',
         image: ayappakkamImg,
-        galleryImages: genericGallery,
+        galleryImages: ayappakkamGallery,
         features: ['Functional Training Area', 'Cardio Zone', 'Steam Room', 'Locker Facility'],
         trainers: [
             { name: 'Vikram', specialty: 'Athletic Performance' },

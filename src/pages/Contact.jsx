@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { operatingHours } from '../data/locations';
 import '../styles/Contact.css';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 
@@ -86,9 +87,8 @@ const Contact = () => {
                             <FaClock className="info-icon" />
                             <div>
                                 <h4>Hours</h4>
-                                <p>Mon-Fri: 5am - 10pm</p>
-                                <p>Sat: 6am - 8pm</p>
-                                <p>Sun: 7am - 6pm</p>
+                                <p>{operatingHours.weekdays}</p>
+                                <p>{operatingHours.sunday}</p>
                             </div>
                         </div>
                     </div>

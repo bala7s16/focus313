@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaFacebookF, FaTwitter, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { operatingHours } from '../data/locations';
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -49,8 +50,8 @@ const Footer = () => {
                 <div className="footer-col">
                     <h4 className="footer-title">Hours</h4>
                     <ul className="footer-hours">
-                        <li>Mon - Sat: 5:30 AM - 9:30 PM</li>
-                        <li>Sunday: 7:00 AM - 1:00 PM</li>
+                        <li>{operatingHours.weekdays}</li>
+                        <li>{operatingHours.sunday}</li>
                     </ul>
                 </div>
             </div>
