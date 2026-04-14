@@ -55,8 +55,11 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="footer-bottom text-center">
+            <div className="footer-bottom text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <p>&copy; {new Date().getFullYear()} Focus 313 Fitness. All rights reserved.</p>
+                <p style={{ marginTop: '0.5rem', opacity: 0.8 }}>
+                    Developed by <span className="text-highlight">VM TechLabs</span>
+                </p>
             </div>
         </footer>
     );
