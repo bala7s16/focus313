@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaStar, FaInstagram, FaFacebook, FaClock } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaStar, FaInstagram, FaFacebook, FaClock, FaWhatsapp } from 'react-icons/fa';
 import { locations } from '../data/locations';
 import '../styles/LocationDetails.css';
 
@@ -77,6 +77,22 @@ const LocationDetails = () => {
                                 <div>
                                     <h4>Phone</h4>
                                     <p>{location.phone}</p>
+                                </div>
+                            </div>
+                            <div className="info-item" id="location-wa-info">
+                                <FaWhatsapp className="info-icon" style={{ color: '#25D366' }} />
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>
+                                        <a
+                                            href={`https://wa.me/${location.phone.replace(/[^0-9]/g, '')}?text=Hi!%20I%20am%20interested%20in%20Focus%20313%20Fitness%20-%20${encodeURIComponent(location.name)}%20branch.`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={{ color: '#25D366', fontWeight: '500' }}
+                                        >
+                                            Chat on WhatsApp
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                             <div className="info-item">

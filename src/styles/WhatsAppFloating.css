@@ -1,0 +1,286 @@
+/* Floating Container */
+.wa-float-container {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 9999;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Floating Action Button */
+.wa-float-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border: none;
+    outline: none;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wa-float-btn:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+}
+
+.wa-float-btn:active {
+    transform: scale(0.95);
+}
+
+/* Tooltip */
+.wa-tooltip {
+    position: absolute;
+    right: 75px;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+.wa-float-btn:hover .wa-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Icon Animations */
+.float-icon-wa {
+    font-size: 1.85rem;
+    animation: wa-pulse 2s infinite;
+}
+
+.float-icon-close {
+    font-size: 1.5rem;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.wa-float-btn.active .float-icon-close {
+    transform: rotate(90deg);
+}
+
+/* WhatsApp Chat Box (Popup) */
+.wa-chat-box {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 360px;
+    max-width: calc(100vw - 2rem);
+    background: rgba(30, 41, 59, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md, 0.75rem);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transform-origin: bottom right;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+.wa-chat-box.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Chat Header */
+.wa-chat-header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wa-brand-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.wa-avatar-status {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    background: rgba(37, 211, 102, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #25D366;
+}
+
+.wa-avatar-icon {
+    font-size: 1.5rem;
+}
+
+.wa-status-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: #25D366;
+    border: 2px solid #0f172a;
+    border-radius: 50%;
+    animation: wa-blink 1.5s infinite ease-in-out;
+}
+
+.wa-brand-info h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: 0.03em;
+}
+
+.wa-brand-info p {
+    font-size: 0.75rem;
+    color: var(--text-dim, #94A3B8);
+    margin: 0;
+}
+
+.wa-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim, #94A3B8);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+.wa-close-btn:hover {
+    color: #ffffff;
+}
+
+/* Chat Body */
+.wa-chat-body {
+    padding: 1.25rem;
+}
+
+.wa-welcome-text {
+    font-size: 0.85rem;
+    color: var(--text-dim, #94A3B8);
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+}
+
+/* Branches List */
+.wa-branches-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.wa-branch-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm, 0.375rem);
+    padding: 0.85rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    width: 100%;
+}
+
+.wa-branch-item:hover {
+    background: rgba(37, 211, 102, 0.08);
+    border-color: rgba(37, 211, 102, 0.3);
+    transform: translateY(-2px);
+}
+
+.wa-branch-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.wa-branch-name {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.wa-branch-tagline {
+    font-size: 0.75rem;
+    color: var(--text-dim, #94A3B8);
+}
+
+.wa-chat-icon {
+    color: var(--text-dim, #94A3B8);
+    font-size: 1.25rem;
+    transition: color 0.25s ease;
+}
+
+.wa-branch-item:hover .wa-chat-icon {
+    color: #25D366;
+}
+
+/* Keyframes */
+@keyframes wa-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wa-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 480px) {
+    .wa-float-container {
+        right: 1.25rem;
+        bottom: 1.25rem;
+    }
+    
+    .wa-chat-box {
+        bottom: 70px;
+        right: 0;
+        width: 320px;
+    }
+    
+    .wa-tooltip {
+        display: none; /* Hide tooltips on mobile since there is no hover */
+    }
+}

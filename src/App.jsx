@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LocationDetails from './pages/LocationDetails';
+import WhatsAppFloating from './components/WhatsAppFloating';
 
 import Blogs from './pages/Blogs';
 import BlogDetails from './pages/BlogDetails';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
+        <WhatsAppFloating />
       </div>
     </Router>
   );

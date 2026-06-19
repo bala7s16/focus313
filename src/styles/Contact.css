@@ -100,6 +100,31 @@
     margin-top: 1rem;
 }
 
+.whatsapp-branches-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.whatsapp-branch-link a {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.whatsapp-branch-link a:hover {
+    color: #25D366;
+}
+
+.whatsapp-branch-link .branch-contact-name {
+    font-weight: 600;
+    color: var(--text-light);
+    margin-right: 0.25rem;
+}
+
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;

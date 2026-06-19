@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebookF, FaTwitter, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaTwitter, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import { operatingHours } from '../data/locations';
 import '../styles/Footer.css';
 
@@ -39,6 +39,17 @@ const Footer = () => {
                         <li>
                             <FaPhone className="icon" />
                             <span>+91 7305073286</span>
+                        </li>
+                        <li>
+                            <FaWhatsapp className="icon" style={{ color: '#25D366' }} />
+                            <a
+                                href="https://wa.me/917305073286?text=Hi!%20I%20have%20an%20enquiry%20about%20Focus%20313%20Fitness."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: '#25D366', fontWeight: '500' }}
+                            >
+                                Chat on WhatsApp
+                            </a>
                         </li>
                         <li>
                             <FaEnvelope className="icon" />

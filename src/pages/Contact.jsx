@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { operatingHours } from '../data/locations';
+import { operatingHours, locations } from '../data/locations';
 import '../styles/Contact.css';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
     const branchEmails = {
@@ -72,6 +72,29 @@ const Contact = () => {
                             <div>
                                 <h4>Phone</h4>
                                 <p>+91 7305073286</p>
+                            </div>
+                        </div>
+
+                        <div className="info-item">
+                            <FaWhatsapp className="info-icon" style={{ color: '#25D366' }} />
+                            <div>
+                                <h4>WhatsApp Chat</h4>
+                                <div className="whatsapp-branches-contact">
+                                    {locations.map((branch) => {
+                                        const cleanNumber = branch.phone.replace(/[^0-9]/g, '');
+                                        return (
+                                            <div key={branch.id} className="whatsapp-branch-link" id={`contact-wa-${branch.id}`}>
+                                                <a
+                                                    href={`https://wa.me/${cleanNumber}?text=Hi!%20I%20am%20interested%20in%20Focus%20313%20Fitness%20-%20${encodeURIComponent(branch.name)}%20branch.`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <span className="branch-contact-name">{branch.name}:</span> {branch.phone}
+                                                </a>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
 
